@@ -1,0 +1,28 @@
+<!-- Code for testing single note found on Github: -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Music Test</title>
+  <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>Music Test</h1>
+  <script>
+    // one context per document
+    var context = new (window.AudioContext || window.webkitAudioContext)();
+    var osc = context.createOscillator(); // instantiate an oscillator
+    osc.type = 'sine'; // this is the default - also square, sawtooth, triangle
+    osc.frequency.value = 440; // Hz
+    osc.connect(context.destination); // connect it to the destination
+    osc.start(); // start the oscillator
+    console.log(osc);
+
+    jQuery("h1").click(function() {
+      osc.context.close();
+    });
+
+  </script>
+<body>
+</html>
